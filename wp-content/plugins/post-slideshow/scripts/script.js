@@ -120,7 +120,7 @@ class PostSlidewhow {
             }
 
             // Keyboard navigation
-            document.addEventListener('keydown', () => {
+            document.addEventListener('keydown', (e) => {
                 if (e.code == "ArrowRight"){
                     this.next(true);
                 } else if (e.code == "ArrowLeft") {
