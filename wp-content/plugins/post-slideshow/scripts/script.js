@@ -164,7 +164,7 @@ class PostSlidewhow {
     slide(transition, touchMovement = 0) {
         if (transition) {
             let shorting = (touchMovement != 0) ? (touchMovement * this.transition) / this.size : 0;
-            this.slidesWrapper.style.transition = "transform " + Number(this.transition - shorting) + "ms ease-in-out";
+            this.slidesWrapper.style.transition = "transform " + Number(this.transition - Math.abs(shorting)) + "ms ease-in-out";
         } else {
             this.slidesWrapper.style.transition = "none";
         }
