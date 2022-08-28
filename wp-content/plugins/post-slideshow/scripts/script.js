@@ -163,7 +163,8 @@ class PostSlidewhow {
      */
     slide(transition, touchMovement = 0) {
         if (transition) {
-            this.slidesWrapper.style.transition = "transform " + this.transition + "ms ease-in-out";
+            let shorting = (touchMovement != 0) ? (touchMovement * this.transition) / this.size : 0;
+            this.slidesWrapper.style.transition = "transform " + Number(this.transition - shorting) + "ms ease-in-out";
         } else {
             this.slidesWrapper.style.transition = "none";
         }
@@ -172,7 +173,7 @@ class PostSlidewhow {
 
     /**
      * Slide to previous post, having in account the infinite loop illusion.
-     * If it's launched by swiping, pass the touch movement to the slide function.
+     * If it's launched by swiping, pass the touch movement to slide function.
      * @param {Number} touchMovement User swipe
      * @returns 
      */
@@ -191,7 +192,7 @@ class PostSlidewhow {
 
     /**
      * Slide to next post, having in account the infinite loop illusion.
-     * If it's launched by swiping, pass the touch movement to the slide function.
+     * If it's launched by swiping, pass the touch movement to slide function.
      * @param {Boolean} userAction The function is fired by user action or autoplay
      * @param {Number} touchMovement User swipe
      * @returns 
